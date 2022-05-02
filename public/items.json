@@ -1,0 +1,56 @@
+[
+    {
+        "id": "1",
+        "name": "Cybex 625T Treadmill",
+        "img": "https://live.staticflickr.com/65535/52045106845_913e671359.jpg",
+        "price": 1895,
+        "quantity": 50,
+        "supplier": "Cybex",
+        "description": "Ensuring only the highest quality and top-of-the-line fitness tracking applications, the Cybex 625T Treadmill will help you achieve."
+    },
+    {
+        "id": "2",
+        "name": "Cybex Eagle Back Extension",
+        "img": "https://live.staticflickr.com/65535/52044595041_dc7f34b6e4.jpg",
+        "price": 1695,
+        "quantity": 50,
+        "supplier": "Cybex",
+        "description": "The Cybex Eagle Back Extension is designed to promote proper and controlled movement into extension."
+    },
+    {
+        "id": "3",
+        "name": "Hammer Strength Ground Base High Pull",
+        "img": "https://live.staticflickr.com/65535/52045106845_913e671359.jpg",
+        "price": 2395,
+        "quantity": 50,
+        "supplier": "Hammer Strength",
+        "description": "Hammer Strength have built a global reputation as the biggest name in strength training, they manufacture rugged equipment designed."
+    },
+    {
+        "id": "4",
+        "name": "Matrix T1X Treadmill",
+        "img": "https://live.staticflickr.com/65535/52044847854_3e9d3400cc_z.jpg",
+        "price": 3695,
+        "quantity": 50,
+        "supplier": "Matrix",
+        "description": "Working out at home can be a challenge, but with this Matrix T1X Treadmill you get all the features of a commercial treadmill in a home package."
+    },
+    {
+        "id": "5",
+        "name": "Keiser M3 Indoor Cycle",
+        "img": "https://live.staticflickr.com/65535/52045106915_712ec2e33b_z.jpg",
+        "price": 1095,
+        "quantity": 50,
+        "supplier": "Keiser",
+        "description": "Keiser’s pioneering M Series indoor group bike is engineered to match the needs of gym owners, riders, and maintenance technicians alike."
+    },
+    {
+        "id": "6",
+        "name": "Life Fitness 95Li Summit Trainer",
+        "img": "https://live.staticflickr.com/65535/52044594936_f4fc7c73f1_z.jpg",
+        "price": 2295,
+        "quantity": 50,
+        "supplier": "Life Fitness",
+        "description": "The 95 Series Summit Trainers combine the best of total-body cross-training and climbing into one intuitive product that will challenge every exerciser."
+    }
+]
