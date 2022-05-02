@@ -10,8 +10,8 @@ const Items = () => {
     }, [])
     return (
         <div>
-            <h2>Our Available Items</h2>
-            <div className='row gy-3 d-flex justify-content-center align-items-center'>
+            <h2 className='mt-5 mb-3 text-center'>Our Available Items</h2>
+            <div className='row gy-3 d-flex justify-content-center'>
                 {
                     items.map(item => <Item key={item.id} item={item}></Item>)
                 }
