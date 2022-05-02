@@ -9,12 +9,12 @@ const Footer = () => {
   return (
     <div className='container-fluid bg-dark mt-5 text-white p-3'>
       <div className='container'>
-        <div className='row d-flex justify-centent-center'>
+        <div className='row d-flex justify-centent-center align-items-center'>
           <div className='col-md-4'>
-            <h4>Contact Us</h4>
-            <p><FaMapMarker/>&nbsp;County Route, New York, United States</p>
-            <p><AiOutlineMail/>&nbsp;contact@gymwarehouse.com</p>
-            <p><AiFillPhone/>&nbsp;Helpline: +9109383723, +092738262</p>
+            <h3 className='mb-3'>GYM Warehouse Management</h3>
+            <p className='fs-5'><FaMapMarker/>&nbsp;County Route, New York, United States</p>
+            <p className='fs-5'><AiOutlineMail/>&nbsp;contact@gymwarehouse.com</p>
+            <p className='fs-5'><AiFillPhone/>&nbsp;Helpline: +9109383723, +092738262</p>
             <p className='fs-2'>
               <span><a className='text-white' href="https://facebook.com" target="_blank" rel="noreferrer"><AiFillFacebook/></a></span>&nbsp;
               <span><a className='text-white' href="https://instagram.com" target="_blank" rel="noreferrer"><AiFillInstagram/></a></span>&nbsp;
@@ -24,10 +24,10 @@ const Footer = () => {
           </div>
           <div className='col-md-4'>
             <ul className='navbar-nav'>
-              <li className="nav-item"><Link className="nav-link text-white" to="">About Us</Link></li>
-              <li className="nav-item"><Link className="nav-link text-white" to="">Refund Policy</Link></li>
-              <li className="nav-item"><Link className="nav-link text-white" to="">Terms and Conditions</Link></li>
-              <li className="nav-item"><Link className="nav-link text-white" to="">Privacy Policy</Link></li>
+              <li className="nav-item"><Link className="nav-link text-white fs-5" to="">About Us</Link></li>
+              <li className="nav-item"><Link className="nav-link text-white fs-5" to="">Refund Policy</Link></li>
+              <li className="nav-item"><Link className="nav-link text-white fs-5" to="">Terms and Conditions</Link></li>
+              <li className="nav-item"><Link className="nav-link text-white fs-5" to="">Privacy Policy</Link></li>
             </ul>
 
           </div>
