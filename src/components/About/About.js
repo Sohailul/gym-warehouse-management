@@ -3,12 +3,12 @@ import {GoPrimitiveDot} from 'react-icons/go';
 
 const About = () => {
     return (
-        <div>
+        <div id="about">
             <h2 className='text-center mt-5'>About Us</h2>
-            <div className='d-flex justify-content-center align-items-center'>
-                <div style={{ height: '3px', width: "50px", marginTop: "-30px" }} className='bg-primary'></div>
-                <p className='px-2' style={{marginTop: "-20px"}}><GoPrimitiveDot/></p>
-                <div style={{ height: '3px', width: "50px", marginTop: "-30px" }} className='bg-primary'></div>
+            <div className='d-flex justify-content-center align-items-center mb-3'>
+                <div style={{ height: '3px', width: "50px", marginTop: "-20px" }} className='bg-primary'></div>
+                <p className='px-2' style={{marginTop: "-10px"}}><GoPrimitiveDot/></p>
+                <div style={{ height: '3px', width: "50px", marginTop: "-20px" }} className='bg-primary'></div>
             </div>
             <div className='row d-flex justify-content-center align-items-center'>
                 <div className='col-md-6 mb-5 bounce'>
