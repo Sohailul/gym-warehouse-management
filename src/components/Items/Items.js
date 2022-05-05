@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import {GoPrimitiveDot} from 'react-icons/go';
+import { GoPrimitiveDot } from 'react-icons/go';
 import Item from '../Item/Item';
 
 const Items = () => {
     const [items, setItems] = useState([]);
     useEffect(() => {
-        fetch('items.json')
+        fetch('http://localhost:5000/item')
             .then(res => res.json())
             .then(data => setItems(data))
     }, [])
@@ -14,12 +14,12 @@ const Items = () => {
             <h2 className='mt-5 mb-3 text-center'>Our Available Items</h2>
             <div className='d-flex justify-content-center align-items-center'>
                 <div style={{ height: '3px', width: "100px", marginTop: "-30px" }} className='bg-primary'></div>
-                <p className='px-2' style={{marginTop: "-20px"}}><GoPrimitiveDot/></p>
+                <p className='px-2' style={{ marginTop: "-20px" }}><GoPrimitiveDot /></p>
                 <div style={{ height: '3px', width: "100px", marginTop: "-30px" }} className='bg-primary'></div>
             </div>
             <div className='row gy-3 d-flex justify-content-center'>
                 {
-                    items.map(item => <Item key={item.id} item={item}></Item>)
+                    items.map(item => <Item key={item._id} item={item}></Item>)
                 }
             </div>
         </div>

@@ -3,7 +3,7 @@ import {GoPrimitiveDot} from 'react-icons/go';
 
 const About = () => {
     return (
-        <div id="about">
+        <div id="about" className='container'>
             <h2 className='text-center mt-5'>About Us</h2>
             <div className='d-flex justify-content-center align-items-center mb-3'>
                 <div style={{ height: '3px', width: "50px", marginTop: "-20px" }} className='bg-primary'></div>

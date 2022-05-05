@@ -7,10 +7,10 @@ import './Header.css';
 
 const Header = () => {
   const [user] = useAuthState(auth);
-  
-  const handleSignOut = () =>{
+
+  const handleSignOut = () => {
     signOut(auth);
-  } 
+  }
   return (
     <header className='container'>
       <nav className="navbar navbar-expand-lg navbar-light">
@@ -24,31 +24,36 @@ const Header = () => {
               <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/">Home</Link>
               </li>
-              {/* <li className="nav-item">
-                <Link className="nav-link" href="home#about">About Us</Link>
-              </li> */}
+              <li className="nav-item">
+                <Link className="nav-link" to="/about">About Us</Link>
+              </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/blogs">Blogs</Link>
               </li>
-              <li className="nav-item dropdown">
-                <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Items
-                </Link>
-                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><Link className="dropdown-item" to="#">My Items</Link></li>
-                  <li><hr className="dropdown-divider" /></li>
-                  <li><Link className="dropdown-item" to="#">Add Items</Link></li>
-                  <li><hr className="dropdown-divider" /></li>
-                  <li><Link className="dropdown-item" to="#">Manage Items</Link></li>
-                </ul>
-              </li>
               {
-              user ?
-                <button onClick={handleSignOut} className="btn btn-link text-decoration-none text-dark fs-5">Log Out&nbsp;</button>
-                :
-                <li className="nav-item">
-                  <Link className="nav-link" to='/login'>Login</Link>
-                </li>
+                user &&
+                <>
+                  <li className="nav-item dropdown">
+                    <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Items
+                    </Link>
+                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><Link className="dropdown-item" to="/myitems">My Items</Link></li>
+                      <li><hr className="dropdown-divider" /></li>
+                      <li><Link className="dropdown-item" to="/additems">Add Items</Link></li>
+                      <li><hr className="dropdown-divider" /></li>
+                      <li><Link className="dropdown-item" to="/manageitems">Manage Items</Link></li>
+                    </ul>
+                  </li>
+                </>
+              }
+              {
+                user ?
+                  <button onClick={handleSignOut} className="btn btn-link text-decoration-none text-dark fs-5">Log Out&nbsp;</button>
+                  :
+                  <li className="nav-item">
+                    <Link className="nav-link" to='/login'>Login</Link>
+                  </li>
               }
             </ul>
           </div>
