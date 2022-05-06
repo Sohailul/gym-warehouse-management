@@ -1,6 +1,6 @@
 import React from 'react';
 import { BsFillPlusCircleFill } from 'react-icons/bs';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 
 const AddItems = () => {
     const handleItemSubmit = (e) => {
@@ -52,6 +52,7 @@ const AddItems = () => {
                     </div>
                     <button type="submit" className="btn w-100 d-block d-flex justify-content-center align-items-center" style={{ backgroundColor: "#4B4C78", color: "#fff" }}><BsFillPlusCircleFill /> &nbsp;Add Item</button>
                 </form>
+                <ToastContainer />
             </div>
         </div>
     );

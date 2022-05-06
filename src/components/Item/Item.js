@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Item.css';
 
 const Item = ({ item }) => {
-    const { name, img, price, quantity, supplier, description } = item;
+    const { _id, name, img, price, quantity, supplier, description } = item;
     return (
         <div className='col-sm-12 col-md-4 d-flex justify-content-center'>
             <div className="card zoom" style={{ width: "25rem" }}>
@@ -14,7 +14,7 @@ const Item = ({ item }) => {
                     <h6 className="card-title">Quantity: {quantity}</h6>
                     <h5 className="card-title">Supplier: {supplier}</h5>
                     <p className="card-text">{description}</p>
-                    <Link to="/" className="btn d-block" style={{ backgroundColor: "#4B4C78", color: "#fff" }}>Stock Update</Link>
+                    <Link to={`/inventory/${_id}`} className="btn d-block" style={{ backgroundColor: "#4B4C78", color: "#fff" }}>Stock Update</Link>
                 </div>
             </div>
         </div>

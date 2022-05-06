@@ -19,7 +19,7 @@ const Items = () => {
             </div>
             <div className='row gy-3 d-flex justify-content-center'>
                 {
-                    items.map(item => <Item key={item._id} item={item}></Item>)
+                    items.slice(0, 6).map(item => <Item key={item._id} item={item}></Item>)
                 }
             </div>
         </div>

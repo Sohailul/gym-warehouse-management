@@ -12,35 +12,41 @@ import AddItems from './components/Items/AddItems';
 import MyItems from './components/Items/MyItems';
 import ManageItems from './components/Items/ManageItems';
 import RequireAuth from './components/Auth/RequireAuth/RequireAuth';
+import Inventory from './components/Inventory/Inventory';
 
 function App() {
   return (
     <div className="App">
-      <Header/>
+      <Header />
       <Routes>
-        <Route path='/' element={<Home/>}></Route>
-        <Route path='/about' element={<About/>}></Route>
-        <Route path='/blogs' element={<Blogs/>}></Route>
+        <Route path='/' element={<Home />}></Route>
+        <Route path='/about' element={<About />}></Route>
+        <Route path='/blogs' element={<Blogs />}></Route>
         <Route path='/myitems' element={
           <RequireAuth>
-            <MyItems/>
+            <MyItems />
           </RequireAuth>
         }></Route>
         <Route path='/additems' element={
           <RequireAuth>
-            <AddItems/>
+            <AddItems />
           </RequireAuth>
         }></Route>
         <Route path='/manageitems' element={
           <RequireAuth>
-            <ManageItems/>
+            <ManageItems />
           </RequireAuth>
         }></Route>
-        <Route path='/login' element={<Login/>}></Route>
-        <Route path='/register' element={<Register/>}></Route>
-        <Route path='*' element={<NotFound/>}></Route>
+        <Route path='/inventory/:id' element={
+          <RequireAuth>
+            <Inventory />
+          </RequireAuth>
+        }></Route>
+        <Route path='/login' element={<Login />}></Route>
+        <Route path='/register' element={<Register />}></Route>
+        <Route path='*' element={<NotFound />}></Route>
       </Routes>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
