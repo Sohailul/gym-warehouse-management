@@ -1,25 +1,53 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Inventory = () => {
     const { id } = useParams();
     const [item, setItem] = useState({});
+    const [quantity, setQuantity] = useState(0);
 
 
 
     useEffect(() => {
-        const url = `https://glacial-stream-19491.herokuapp.com/item/${id}`;
+        const url = `http://localhost:5000/item/${id}`;
         fetch(url)
             .then(res => res.json())
-            .then(data => setItem(data))
-    }, [id]);
+            .then(data => {
+                setItem(data);
+                //setQuantity(data.quantity);
+            });
+    }, [quantity]);
 
-    const handleNewQuantity = event => {
+    const handleDelivered = () => {
+        const newQuantity = parseInt(item.quantity) - 1;
+        const updatedData = { quantity: newQuantity };
+
+        const url = `http://localhost:5000/item/${id}`;
+        console.log(url);
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(updatedData),
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data) {
+                    //console.log('Success', data);
+                    toast("Quantity Delivered Successfully");
+                    setQuantity(newQuantity);
+                }
+            });
+    }
+
+    const handleQuantity = event => {
         event.preventDefault();
-        const quantity = event.target.quantity.value;
-        const newQuantity = { quantity };
+        const quantity = parseInt(item.quantity) + parseInt(event.target.newQuantity.value);
+        const newQuantity = { quantity: quantity };
 
-        const url = `https://glacial-stream-19491.herokuapp.com/item/${id}`;
+        const url = `http://localhost:5000/item/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -30,29 +58,12 @@ const Inventory = () => {
             .then(res => res.json())
             .then(data => {
                 console.log('Success', data);
-                alert("Quantity Updated Successfully");
+                toast("Quantity Updated Successfully");
                 event.target.reset();
+                setQuantity(quantity);
             });
     }
-    const handleDelivered = () => {
-        const existingQuantity = (parseInt(item.quantity)) - 1;
-        const delivered = { quantity: existingQuantity };
-        console.log(delivered);
 
-        const url = `https://glacial-stream-19491.herokuapp.com/item/${id}`;
-        fetch(url, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json',
-            },
-            body: JSON.stringify(delivered),
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log('Success', data);
-                alert("Quantity Updated Successfully");
-            });
-    }
 
     return (
         <div className='container mx-auto'>
@@ -69,9 +80,9 @@ const Inventory = () => {
                             <p className="card-text">{item.description}</p>
                             <button onClick={handleDelivered} className='btn mb-3 btn-lg btn-block w-100' style={{ backgroundColor: "#4B4C78", color: "#fff" }}>Delivered</button>
                             <div className='restock-form'>
-                                <form onClick={handleNewQuantity}>
+                                <form onSubmit={handleQuantity}>
                                     <div className="mb-3">
-                                        <input type="number" className="form-control" name="quantity" placeholder="Restock the Items" required />
+                                        <input type="number" className="form-control" name="newQuantity" placeholder="Restock the Items" required />
                                     </div>
                                     <input type="submit" value="Update Stock" style={{ backgroundColor: "#4B4C78", color: "#fff", padding: "15px" }} />
                                 </form>
@@ -79,6 +90,7 @@ const Inventory = () => {
                         </div>
                     </div>
                 </div>
+                <ToastContainer/>
             </div>
         </div>
     );

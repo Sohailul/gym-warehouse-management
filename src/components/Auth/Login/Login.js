@@ -23,7 +23,7 @@ const Login = () => {
   }
 
   if (user) {
-    const url = 'https://glacial-stream-19491.herokuapp.com/login';
+    const url = 'http://localhost:5000/login';
     fetch(url, {
       method: 'POST',
       body: JSON.stringify({

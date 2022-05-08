@@ -16,7 +16,7 @@ const AddItems = () => {
         const supplier = e.target.supplier.value;
         const description = e.target.description.value;
 
-        const url = `https://glacial-stream-19491.herokuapp.com/item`;
+        const url = `http://localhost:5000/item`;
         fetch(url, {
             method: 'POST',
             body: JSON.stringify({ email, name, price, quantity, supplier, description }),
@@ -29,7 +29,7 @@ const AddItems = () => {
                 console.log(data);
             });
 
-        const myurl = `https://glacial-stream-19491.herokuapp.com/myitem`;
+        const myurl = `http://localhost:5000/myitem`;
         fetch(myurl, {
             method: 'POST',
             body: JSON.stringify({ email, name, price, quantity, supplier, description }),

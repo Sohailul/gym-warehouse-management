@@ -29,7 +29,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className='col-md-3'>
-            <h5 className='mb-3 text-info'>GYM Warehouse Management</h5>
+            <h5 className='mb-3 text-info'>PROGYMHOUSE</h5>
             <p className='fs-6 d-flex align-items-center'><span><FaMapMarker /></span>&nbsp;County Route, New York, United States</p>
             <p className='fs-6 d-flex align-items-center'><span><AiOutlineMail /></span>&nbsp;contact@gymwarehouse.com</p>
             <p className='fs-6 d-flex align-items-center'><span><AiFillPhone /></span>&nbsp;Helpline: +9109383723, +092738262</p>

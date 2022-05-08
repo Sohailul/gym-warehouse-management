@@ -12,7 +12,7 @@ const ManageItems = () => {
         const proceed = window.confirm('Are you sure?');
 
         if (proceed) {
-            const url = `https://glacial-stream-19491.herokuapp.com/item/${id}`;
+            const url = `http://localhost:5000/item/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
