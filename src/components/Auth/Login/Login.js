@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -7,18 +7,35 @@ import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
+  const [user] = useAuthState(auth);
   const emailRef = useRef('');
   const passwordRef = useRef('');
   const location = useLocation();
-  const [signInWithEmailAndPassword, user, error] = useSignInWithEmailAndPassword(auth);
+  const [signInWithEmailAndPassword, error] = useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
   const navigate = useNavigate();
   let errorElement;
   let from = location.state?.from?.pathname || "/";
 
   if (user) {
-    navigate(from, { replace: true });
+    const url = 'http://localhost:5000/login';
+    fetch(url, {
+      method: 'POST',
+      body: JSON.stringify({
+        email: user.email
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        localStorage.setItem('accessToken', data.accessToken);
+        console.log(data);
+        navigate(from, { replace: true });
+      });
   }
+
 
   if (error) {
     errorElement = <p className='text-danger'>Error/Invalid Login {error?.message}</p>

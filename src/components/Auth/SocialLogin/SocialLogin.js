@@ -5,15 +5,12 @@ import { useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 
 const SocialLogin = () => {
-    const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth);
+    const [signInWithGoogle] = useSignInWithGoogle(auth);
     const navigate = useNavigate();
-
-    if (googleUser) {
-        navigate('/');
-    }
 
     const googleSignIn = () => {
         signInWithGoogle();
+        navigate('/');
     }
     return (
         <div>

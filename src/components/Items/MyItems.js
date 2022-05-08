@@ -14,7 +14,7 @@ const MyItems = () => {
         const url = `http://localhost:5000/myitem?email=${email}`;
         fetch(url, {
             headers: {
-
+                authorization: `${email} ${localStorage.getItem('accessToken')}`
             },
         })
             .then(res => res.json())
@@ -62,7 +62,7 @@ const MyItems = () => {
                 </thead>
                 <tbody>
                     {
-                        myItems.map(myitem => <tr>
+                        myItems.map(myitem => <tr key={myitem._id}>
                             <th scope="row" className='count'></th>
                             <td>{myitem.name}</td>
                             <td>${myitem.price}</td>
