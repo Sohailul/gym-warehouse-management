@@ -10,7 +10,7 @@ const Inventory = () => {
 
 
     useEffect(() => {
-        const url = `http://localhost:5000/item/${id}`;
+        const url = `https://evening-tundra-29985.herokuapp.com/item/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -23,7 +23,7 @@ const Inventory = () => {
         const newQuantity = parseInt(item.quantity) - 1;
         const updatedData = { quantity: newQuantity };
 
-        const url = `http://localhost:5000/item/${id}`;
+        const url = `https://evening-tundra-29985.herokuapp.com/item/${id}`;
         console.log(url);
         fetch(url, {
             method: 'PUT',
@@ -47,7 +47,7 @@ const Inventory = () => {
         const quantity = parseInt(item.quantity) + parseInt(event.target.newQuantity.value);
         const newQuantity = { quantity: quantity };
 
-        const url = `http://localhost:5000/item/${id}`;
+        const url = `https://evening-tundra-29985.herokuapp.com/item/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -90,7 +90,7 @@ const Inventory = () => {
                         </div>
                     </div>
                 </div>
-                <ToastContainer/>
+                <ToastContainer />
             </div>
         </div>
     );

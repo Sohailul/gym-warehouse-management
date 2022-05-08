@@ -16,7 +16,7 @@ const AddItems = () => {
         const supplier = e.target.supplier.value;
         const description = e.target.description.value;
 
-        const url = `http://localhost:5000/item`;
+        const url = `https://evening-tundra-29985.herokuapp.com/item`;
         fetch(url, {
             method: 'POST',
             body: JSON.stringify({ email, name, price, quantity, supplier, description }),
@@ -29,7 +29,7 @@ const AddItems = () => {
                 console.log(data);
             });
 
-        const myurl = `http://localhost:5000/myitem`;
+        const myurl = `https://evening-tundra-29985.herokuapp.com/myitem`;
         fetch(myurl, {
             method: 'POST',
             body: JSON.stringify({ email, name, price, quantity, supplier, description }),
