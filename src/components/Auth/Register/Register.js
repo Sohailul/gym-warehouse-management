@@ -2,17 +2,22 @@ import React, { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuthState, useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
-import { toast} from 'react-toastify';
+import { toast } from 'react-toastify';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import Loading from '../../Loading/Loading';
 
 const Register = () => {
   const [user] = useAuthState(auth);
   const [agree, setAgree] = useState(false);
-  const [createUserWithEmailAndPassword, regUser] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-  const [updateProfile] = useUpdateProfile(auth);
+  const [createUserWithEmailAndPassword, regUser, loading] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  const [updateProfile, updating] = useUpdateProfile(auth);
   const location = useLocation();
   const navigate = useNavigate();
   let from = location.state?.from?.pathname || "/";
+
+  if (loading || updating) {
+    return <Loading></Loading>
+  }
 
   if (regUser) {
     console.log(regUser);

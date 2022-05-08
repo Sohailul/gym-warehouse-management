@@ -5,17 +5,22 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import Loading from '../../Loading/Loading';
 
 const Login = () => {
   const [user] = useAuthState(auth);
   const emailRef = useRef('');
   const passwordRef = useRef('');
   const location = useLocation();
-  const [signInWithEmailAndPassword, error] = useSignInWithEmailAndPassword(auth);
-  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
+  const [signInWithEmailAndPassword, error, loading] = useSignInWithEmailAndPassword(auth);
+  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
   const navigate = useNavigate();
   let errorElement;
   let from = location.state?.from?.pathname || "/";
+
+  if (loading || sending) {
+    return <Loading></Loading>
+  }
 
   if (user) {
     const url = 'https://glacial-stream-19491.herokuapp.com/login';
