@@ -23,7 +23,9 @@ const ManageItems = () => {
                     setItems(remaining);
                 })
         }
+
     }
+
     return (
         <div className='container'>
             <h2 className='text-center mb-3 mt-5'>Manage Items</h2>

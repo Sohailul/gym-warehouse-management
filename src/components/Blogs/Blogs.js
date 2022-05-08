@@ -5,7 +5,7 @@ const Blogs = () => {
         <div className='container'>
             <h2 className='text-center mt-5 mb-5'>Blogs</h2>
             <div className='row gy-5'>
-                <div className='col-md-4'>
+                <div className='col-md-4 d-flex justify-content-center align-items-center'>
                     <div className="card" style={{ width: "25rem" }}>
                         <img src="https://static.javatpoint.com/javascriptpages/images/javascript-vs-nodejs.png" className="card-img-top" alt="..." />
                         <div className="card-body">
@@ -14,7 +14,7 @@ const Blogs = () => {
                         </div>
                     </div>
                 </div>
-                <div className='col-md-4'>
+                <div className='col-md-4 d-flex justify-content-center align-items-center'>
                     <div className="card" style={{ width: "25rem" }}>
                         <img src="https://miro.medium.com/max/720/1*ay9nx1XdZ3AOzx5Ev8xJEg.png" className="card-img-top" alt="..." />
                         <div className="card-body">
@@ -24,7 +24,7 @@ const Blogs = () => {
                         </div>
                     </div>
                 </div>
-                <div className='col-md-4'>
+                <div className='col-md-4 d-flex justify-content-center align-items-center'>
                     <div className="card" style={{ width: "25rem" }}>
                         <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20191104165821/SQL-Vs-NoSQL1.png" className="card-img-top" alt="..." />
                         <div className="card-body">
@@ -38,7 +38,7 @@ const Blogs = () => {
                         </div>
                     </div>
                 </div>
-                <div className='col-md-4'>
+                <div className='col-md-4 d-flex justify-content-center align-items-center'>
                     <div className="card" style={{ width: "25rem" }}>
                         <img src="https://uploads.toptal.io/blog/image/956/toptal-blog-image-1426676395222.jpeg" className="card-img-top" alt="..." />
                         <div className="card-body">

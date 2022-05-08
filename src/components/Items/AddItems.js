@@ -1,11 +1,15 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { BsFillPlusCircleFill } from 'react-icons/bs';
 import { toast, ToastContainer } from 'react-toastify';
+import auth from '../../firebase.init';
 
 const AddItems = () => {
+    const [user] = useAuthState(auth);
     const handleItemSubmit = (e) => {
         e.preventDefault();
 
+        const email = e.target.email.value;
         const name = e.target.name.value;
         const price = e.target.price.value;
         const quantity = e.target.quantity.value;
@@ -15,7 +19,7 @@ const AddItems = () => {
         const url = `http://localhost:5000/item`;
         fetch(url, {
             method: 'POST',
-            body: JSON.stringify({ name, price, quantity, supplier, description }),
+            body: JSON.stringify({ email, name, price, quantity, supplier, description }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
             },
@@ -24,6 +28,20 @@ const AddItems = () => {
             .then(data => {
                 console.log(data);
             });
+
+        const myurl = `http://localhost:5000/myitem`;
+        fetch(myurl, {
+            method: 'POST',
+            body: JSON.stringify({ email, name, price, quantity, supplier, description }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then(data => {
+                console.log(data);
+            });
+
         toast('Item Added Successfully');
         e.target.reset();
     }
@@ -32,6 +50,9 @@ const AddItems = () => {
             <div className='col-md-6 col-sm-6 mx-auto mt-5 border p-3'>
                 <h3 className='text-success text-center mb-5'>Add Items!</h3>
                 <form onSubmit={handleItemSubmit}>
+                    <div className="mb-3">
+                        <input readOnly type="email" name="email" value={user.email} className="form-control" placeholder="Item Name" required />
+                    </div>
                     <div className="mb-3">
                         <input type="text" name="name" className="form-control" placeholder="Item Name" required />
                     </div>
