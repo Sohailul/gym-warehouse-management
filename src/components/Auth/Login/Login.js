@@ -18,7 +18,7 @@ const Login = () => {
   let from = location.state?.from?.pathname || "/";
 
   if (user) {
-    const url = 'http://localhost:5000/login';
+    const url = 'https://glacial-stream-19491.herokuapp.com/login';
     fetch(url, {
       method: 'POST',
       body: JSON.stringify({

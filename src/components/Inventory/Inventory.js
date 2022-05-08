@@ -8,10 +8,10 @@ const Inventory = () => {
 
 
     useEffect(() => {
-        const url = `http://localhost:5000/item/${id}`;
+        const url = `https://glacial-stream-19491.herokuapp.com/item/${id}`;
         fetch(url)
             .then(res => res.json())
-            .then(data =>setItem(data))
+            .then(data => setItem(data))
     }, [id]);
 
     const handleNewQuantity = event => {
@@ -19,7 +19,7 @@ const Inventory = () => {
         const quantity = event.target.quantity.value;
         const newQuantity = { quantity };
 
-        const url = `http://localhost:5000/item/${id}`;
+        const url = `https://glacial-stream-19491.herokuapp.com/item/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -35,11 +35,11 @@ const Inventory = () => {
             });
     }
     const handleDelivered = () => {
-        const existingQuantity = (parseInt(item.quantity))-1;
+        const existingQuantity = (parseInt(item.quantity)) - 1;
         const delivered = { quantity: existingQuantity };
         console.log(delivered);
 
-        const url = `http://localhost:5000/item/${id}`;
+        const url = `https://glacial-stream-19491.herokuapp.com/item/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {

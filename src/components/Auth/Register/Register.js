@@ -1,19 +1,42 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useAuthState, useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { toast} from 'react-toastify';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
+  const [user] = useAuthState(auth);
   const [agree, setAgree] = useState(false);
-  const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  const [createUserWithEmailAndPassword, regUser] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile] = useUpdateProfile(auth);
+  const location = useLocation();
   const navigate = useNavigate();
+  let from = location.state?.from?.pathname || "/";
+
+  if (regUser) {
+    console.log(regUser);
+  }
 
   if (user) {
-    console.log(user);
+    const url = 'https://glacial-stream-19491.herokuapp.com/login';
+    fetch(url, {
+      method: 'POST',
+      body: JSON.stringify({
+        email: user.email
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        localStorage.setItem('accessToken', data.accessToken);
+        console.log(data);
+        navigate(from, { replace: true });
+      });
   }
+
 
   const handleRegister = async (event) => {
     event.preventDefault();
