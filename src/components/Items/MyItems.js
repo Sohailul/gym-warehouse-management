@@ -14,7 +14,7 @@ const MyItems = () => {
         const url = `https://evening-tundra-29985.herokuapp.com/myitem?email=${email}`;
         fetch(url, {
             headers: {
-                authorization: `${email} ${localStorage.getItem('accessToken')}`
+                Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             },
         })
             .then(res => res.json())
@@ -62,17 +62,19 @@ const MyItems = () => {
                 </thead>
                 <tbody>
                     {
-                        myItems.map(myitem => <tr key={myitem._id}>
-                            <th scope="row" className='count'></th>
-                            <td>{myitem.name}</td>
-                            <td>${myitem.price}</td>
-                            <td>{myitem.quantity}</td>
-                            <td>{myitem.supplier}</td>
-                            <td>
-                                <button onClick={() => handleDelete(myitem._id)}><BsFillTrashFill /></button>
-
-                            </td>
-                        </tr>)
+                        myItems.map(myitem =>
+                            <>
+                                <tr key={myitem._id}>
+                                    <th scope="row" className='count'></th>
+                                    <td>{myitem.name}</td>
+                                    <td>${myitem.price}</td>
+                                    <td>{myitem.quantity}</td>
+                                    <td>{myitem.supplier}</td>
+                                    <td>
+                                        <button onClick={() => handleDelete(myitem._id)}><BsFillTrashFill /></button>
+                                    </td>
+                                </tr>
+                            </>)
                     }
                 </tbody>
             </table>

@@ -67,10 +67,10 @@ const Inventory = () => {
 
     return (
         <div className='container mx-auto'>
-            <div className="row d-flex justify-content-center align-items-center">
-                <div className='col-sm-12 col-md-8'>
-                    <div className="d-flex justify-content-center align-items-center zoom">
-                        <img src={item.img} className="card-img-top img-fluid" alt="..." />
+            <div className="row d-flex justify-content-center align-items-center mt-5">
+                <div className='col-sm-12 col-md-6'>
+                    <div className="card d-flex justify-content-center align-items-center zoom">
+                        <img src={item.img} className="card-img-top img-fluid w-75" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title">Id: {item._id}</h5>
                             <h5 className="card-title">Name: {item.name}</h5>
